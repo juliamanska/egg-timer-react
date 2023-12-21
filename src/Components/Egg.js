@@ -4,8 +4,7 @@ const Egg = () => {
   return (
     <div className="egg">
       <div className="albumen">
-        Albumen
-        <div className="yolk">Yolk</div>
+        <div className="yolk"></div>
       </div>
     </div>
   );
