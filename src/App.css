@@ -37,7 +37,17 @@
   }
 } */
 
+.timer{
+  margin: 10vw;
+  background: rgb(213, 248, 229);
+  padding: 3vw 10vw;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px 4px rgb(46, 124, 86);
+}
 
+.egg{
+  margin: 1vh;
+}
 .albumen{
   background: white;
   border-radius: 50% 50% 50% 50% / 61% 58% 42% 39%;

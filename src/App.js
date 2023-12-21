@@ -3,9 +3,9 @@ import Egg from "./Components/Egg";
 
 function App() {
   return (
-    <>
+    <div className="timer">
       <Egg />
-    </>
+    </div>
   );
 }
 
