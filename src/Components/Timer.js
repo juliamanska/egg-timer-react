@@ -14,9 +14,6 @@ const Timer = () => {
   const countTime = () => {
     const newInterval = setInterval(() => {
       setSeconds((prevSeconds) => {
-        if (prevSeconds === 60) {
-          setMinutes((prevMinutes) => prevMinutes - 1);
-        }
         if (prevSeconds === 0) {
           setMinutes((prevMinutes) => {
             if (prevMinutes === 0) {
@@ -24,9 +21,9 @@ const Timer = () => {
               setIntervalId(null);
               return 0;
             }
-            return prevMinutes;
+            return prevMinutes - 1;
           });
-          return 60;
+          return 59;
         }
         return prevSeconds - 1;
       });
