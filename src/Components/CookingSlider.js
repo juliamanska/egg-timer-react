@@ -1,19 +1,15 @@
-import React, { useState } from "react";
-import Egg from "./Egg";
+import React from "react";
+import { useLevel, useLevelUpdate } from "./CookingContext";
 
 const CookingSlider = () => {
-  const [levelOfCooking, setLevelOfCooking] = useState(45);
-
-  const handleLevelOfCooking = (event) => {
-    const changeLevelOfCooking = event.target.value;
-    setLevelOfCooking(changeLevelOfCooking);
-  };
+  const displayLevelOfCooking = useLevel();
+  const handleLevelOfCooking = useLevelUpdate();
 
   return (
     <div>
       <form>
         <label>
-          {levelOfCooking}
+          {displayLevelOfCooking}
           <input
             type="range"
             id="level"
