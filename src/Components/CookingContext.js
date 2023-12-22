@@ -12,7 +12,7 @@ export const useLevelUpdate = () => {
 };
 
 export const LevelProvider = ({ children }) => {
-  const [levelOfCooking, setLevelOfCooking] = useState(45);
+  const [levelOfCooking, setLevelOfCooking] = useState(62);
 
   const handleColor = (event) => {
     const changeLevelOfCooking = event.target.value;

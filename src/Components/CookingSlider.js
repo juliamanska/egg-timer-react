@@ -14,9 +14,10 @@ const CookingSlider = () => {
             type="range"
             id="level"
             name="level"
-            min="10"
-            max="90"
+            min="0"
+            max="62"
             onChange={handleLevelOfCooking}
+            defaultValue={62}
           />
         </label>
       </form>
