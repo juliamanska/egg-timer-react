@@ -8,18 +8,16 @@ const CookingSlider = () => {
   return (
     <div>
       <form>
-        <label>
-          {displayLevelOfCooking}
-          <input
-            type="range"
-            id="level"
-            name="level"
-            min="0"
-            max="62"
-            onChange={handleLevelOfCooking}
-            defaultValue={62}
-          />
-        </label>
+        <label>{displayLevelOfCooking}</label>
+        <input
+          type="range"
+          id="level"
+          name="level"
+          min="0"
+          max="62"
+          onChange={handleLevelOfCooking}
+          defaultValue={62}
+        />
       </form>
     </div>
   );

@@ -40,8 +40,8 @@
 .timer{
   margin: 10vw;
   background: rgb(213, 248, 229);
-  padding: 3vw 10vw;
-  border-radius: 20px;
+  padding: 3vw 7vw;
+  border-radius: 30px;
   box-shadow: 0 5px 15px 4px rgb(46, 124, 86);
 }
 
@@ -53,7 +53,7 @@
   border-radius: 50% 50% 50% 50% / 61% 58% 42% 39%;
   width: 17vw; 
   height: 20vw; 
-  box-shadow: 0 0 15px 2px rgb(138, 143, 124);
+  box-shadow: 0 0 3px 0 rgb(211, 213, 202);
   position: relative;
 }
 
@@ -72,3 +72,62 @@
 #level{
   direction: rtl;
 }
+
+.egg-timer{
+  display: flex;
+  margin: 20px;
+}
+
+.start-time{
+  margin: 0 20px;
+  padding: 2vw;
+}
+
+.start-time h2{
+  font-size: 4vw;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.start-time button{
+  padding: 0.5vw 5vw;
+  font-size: 3vw;
+  border-radius: 5vh;
+  border: none;
+  outline: none;
+  background:rgb(248, 246, 246);
+  box-shadow: 0 4px 15px 4px rgb(102, 187, 146);
+  cursor: pointer;
+}
+
+input[type="range"] {
+  appearance: none;
+  background-color: transparent;
+  width: 100%;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  position: relative;
+  height: 2vw;
+  background-color: rgb(44, 161, 101);
+  border-radius: 5vw;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  box-sizing: border-box;
+  appearance: none;
+  position: relative;
+  background-color: rgb(20, 96, 57);
+  border: 5px solid white;
+  border-radius: 4vw;
+  width: 3.5vw;
+  height: 3.5vw;
+  top: 50%;
+  translate: 0 -50%;
+}
+
+label{
+  display: none;
+}
+

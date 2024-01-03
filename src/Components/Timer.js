@@ -52,7 +52,7 @@ const Timer = () => {
   };
 
   return (
-    <div>
+    <div className="start-time">
       <h2>
         {formattedMinutes}:{formattedSeconds}
       </h2>

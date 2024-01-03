@@ -6,11 +6,13 @@ import Timer from "./Components/Timer";
 function App() {
   return (
     <LevelProvider>
-      <div className="timer">
+      <section className="timer">
         <CookingSlider />
-        <Egg />
-        <Timer />
-      </div>
+        <div className="egg-timer">
+          <Egg />
+          <Timer />
+        </div>
+      </section>
     </LevelProvider>
   );
 }
