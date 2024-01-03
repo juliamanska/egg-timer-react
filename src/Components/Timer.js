@@ -19,6 +19,7 @@ const Timer = () => {
             if (prevMinutes === 0) {
               clearInterval(newInterval);
               setIntervalId(null);
+              setSeconds(0);
               return 0;
             }
             return prevMinutes - 1;
