@@ -8,6 +8,7 @@ const Timer = () => {
   const [seconds, setSeconds] = useState(0);
   const [intervalId, setIntervalId] = useState(null);
   const audioRef = useRef(null);
+  const buttonRef = useRef(null);
 
   useEffect(() => {
     setMinutes(displayTime);
@@ -41,6 +42,12 @@ const Timer = () => {
     }
   };
 
+  const hideStart = () => {
+    if (buttonRef.current) {
+      buttonRef.current.style.visibility = "hidden";
+    }
+  };
+
   const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
   const formattedSeconds =
     seconds < 10 ? "0" + seconds : seconds === 60 ? "00" : seconds;
@@ -48,6 +55,7 @@ const Timer = () => {
   const handleStartClick = () => {
     if (!intervalId) {
       countTime();
+      hideStart();
     }
   };
 
@@ -56,7 +64,9 @@ const Timer = () => {
       <h2>
         {formattedMinutes}:{formattedSeconds}
       </h2>
-      <button onClick={handleStartClick}>Start</button>
+      <button ref={buttonRef} onClick={handleStartClick}>
+        Start
+      </button>
       <audio ref={audioRef} src={endSound}></audio>
     </div>
   );
