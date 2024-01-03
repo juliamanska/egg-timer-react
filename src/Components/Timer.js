@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useTime } from "./CookingContext";
+import endSound from "../endSound.mp3";
 
 const Timer = () => {
   const displayTime = useTime();
   const [minutes, setMinutes] = useState(displayTime);
   const [seconds, setSeconds] = useState(0);
   const [intervalId, setIntervalId] = useState(null);
+  const audioRef = useRef(null);
 
   useEffect(() => {
     setMinutes(displayTime);
@@ -20,6 +22,7 @@ const Timer = () => {
               clearInterval(newInterval);
               setIntervalId(null);
               setSeconds(0);
+              playEndSound();
               return 0;
             }
             return prevMinutes - 1;
@@ -30,6 +33,12 @@ const Timer = () => {
       });
     }, 1000);
     setIntervalId(newInterval);
+  };
+
+  const playEndSound = () => {
+    if (audioRef.current) {
+      audioRef.current.play();
+    }
   };
 
   const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
@@ -48,6 +57,7 @@ const Timer = () => {
         {formattedMinutes}:{formattedSeconds}
       </h2>
       <button onClick={handleStartClick}>Start</button>
+      <audio ref={audioRef} src={endSound}></audio>
     </div>
   );
 };
