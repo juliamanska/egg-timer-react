@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useTime } from "./CookingContext";
 import endSound from "../endSound.mp3";
+let startCount = false;
 
 const Timer = () => {
   const displayTime = useTime();
@@ -55,7 +56,7 @@ const Timer = () => {
   const handleStartClick = () => {
     if (!intervalId) {
       countTime();
-      hideStart();
+      startCount = true;
     }
   };
 
@@ -64,7 +65,7 @@ const Timer = () => {
       <h2>
         {formattedMinutes}:{formattedSeconds}
       </h2>
-      <button ref={buttonRef} onClick={handleStartClick}>
+      <button ref={buttonRef} onClick={handleStartClick} disabled={startCount}>
         Start
       </button>
       <audio ref={audioRef} src={endSound}></audio>
