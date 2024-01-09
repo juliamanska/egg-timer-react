@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useTime } from "./CookingContext";
+import { useTime, useClicked } from "./CookingContext";
 import endSound from "../endSound.mp3";
 let startCount = false;
 
@@ -10,6 +10,7 @@ const Timer = () => {
   const [intervalId, setIntervalId] = useState(null);
   const audioRef = useRef(null);
   const buttonRef = useRef(null);
+  const { toggleClicked } = useClicked();
 
   useEffect(() => {
     setMinutes(displayTime);
@@ -43,12 +44,6 @@ const Timer = () => {
     }
   };
 
-  const hideStart = () => {
-    if (buttonRef.current) {
-      buttonRef.current.style.visibility = "hidden";
-    }
-  };
-
   const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
   const formattedSeconds =
     seconds < 10 ? "0" + seconds : seconds === 60 ? "00" : seconds;
@@ -57,6 +52,7 @@ const Timer = () => {
     if (!intervalId) {
       countTime();
       startCount = true;
+      toggleClicked();
     }
   };
 

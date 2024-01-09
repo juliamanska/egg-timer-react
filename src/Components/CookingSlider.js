@@ -1,9 +1,10 @@
 import React from "react";
-import { useLevel, useLevelUpdate } from "./CookingContext";
+import { useLevel, useLevelUpdate, useClicked } from "./CookingContext";
 
 const CookingSlider = () => {
   const displayLevelOfCooking = useLevel();
   const handleLevelOfCooking = useLevelUpdate();
+  let { clicked } = useClicked();
 
   return (
     <div>
@@ -17,6 +18,7 @@ const CookingSlider = () => {
           max="62"
           onChange={handleLevelOfCooking}
           defaultValue={62}
+          disabled={clicked}
         />
       </form>
     </div>

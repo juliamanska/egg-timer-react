@@ -3,6 +3,7 @@ import React, { useState, useContext } from "react";
 const LevelContext = React.createContext();
 const LevelUpdateContext = React.createContext();
 const TimeContext = React.createContext();
+const ClickContext = React.createContext();
 
 export const useLevel = () => {
   return useContext(LevelContext);
@@ -16,9 +17,18 @@ export const useTime = () => {
   return useContext(TimeContext);
 };
 
+export const useClicked = () => {
+  return useContext(ClickContext);
+};
+
 export const LevelProvider = ({ children }) => {
   const [levelOfCooking, setLevelOfCooking] = useState(62);
   const [time, setTime] = useState(5);
+  const [clicked, setClicked] = useState(false);
+
+  const toggleClicked = () => {
+    setClicked(!clicked);
+  };
 
   const handleColor = (event) => {
     const changeLevelOfCooking = event.target.value;
@@ -46,7 +56,11 @@ export const LevelProvider = ({ children }) => {
     <div>
       <LevelContext.Provider value={levelOfCooking}>
         <LevelUpdateContext.Provider value={handleColor}>
-          <TimeContext.Provider value={time}>{children}</TimeContext.Provider>
+          <TimeContext.Provider value={time}>
+            <ClickContext.Provider value={{ clicked, toggleClicked }}>
+              {children}
+            </ClickContext.Provider>
+          </TimeContext.Provider>
         </LevelUpdateContext.Provider>
       </LevelContext.Provider>
     </div>
